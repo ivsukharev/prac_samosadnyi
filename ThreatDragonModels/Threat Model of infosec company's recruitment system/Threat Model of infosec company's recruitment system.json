@@ -1362,12 +1362,25 @@
                   "new": false,
                   "number": 1,
                   "score": ""
+                },
+                {
+                  "id": "f36353ff-fb4e-4ca2-9363-529e988288ac",
+                  "title": "Repudiation of CV uploading",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Repudiation",
+                  "description": "Отрицание загрузки резюме (пользователь утверждает, что резюме не его), отрицание  корректности проверки/сдачи CTF.",
+                  "mitigation": "Логирование действий пользователя с привязкой к IP и времени + идентифицировать сессию пользователя (cookies)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 1,
                 "tampering": 0,
-                "repudiation": 0,
+                "repudiation": 1,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
@@ -2942,6 +2955,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 1
+    "threatTop": 2
   }
 }
