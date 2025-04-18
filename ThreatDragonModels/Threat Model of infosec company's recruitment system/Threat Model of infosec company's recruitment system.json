@@ -33,8 +33,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "1ff642d9-c73c-4f4f-91cd-744391bce619",
             "zIndex": -1,
+            "id": "1ff642d9-c73c-4f4f-91cd-744391bce619",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "CTF Service",
@@ -54,8 +54,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "a75ef1bb-20f1-404f-a96f-dc155abf2334",
             "zIndex": -1,
+            "id": "a75ef1bb-20f1-404f-a96f-dc155abf2334",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
@@ -85,6 +85,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -168,11 +169,10 @@
               ]
             },
             "id": "271645d7-9fab-4f52-a722-b6391a50d276",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "Candidate",
-              "description": "",
+              "description": "Пользователь, отправляет резюме, решает CTF и участвует в чате",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1247,13 +1247,14 @@
                 "text": "Web \nApplication"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -1337,19 +1338,40 @@
               ]
             },
             "id": "4c97476e-2eeb-4c60-9412-f5793c4fdd3e",
-            "zIndex": 11,
             "data": {
               "type": "tm.Process",
               "name": "Web \nApplication",
-              "description": "Web resource (website)",
+              "description": "Вебсайт / веб-приложение",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "90fc3582-6edc-475f-af8d-bb28c00fa3a6",
+                  "title": "Requests from candidate's browser",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Подделка запросов от имени браузера",
+                  "mitigation": "Использование CSRF токенов",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             },
             "children": [
               "ebda19b2-e96e-44bf-a2c1-caab7685079b"
@@ -1376,6 +1398,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -1459,7 +1482,6 @@
               ]
             },
             "id": "aad5cc06-77e9-47c5-ba1c-4ec32a3cc651",
-            "zIndex": 12,
             "data": {
               "type": "tm.Process",
               "name": "Web server",
@@ -1495,6 +1517,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 13,
             "ports": {
               "groups": {
                 "top": {
@@ -1578,11 +1601,10 @@
               ]
             },
             "id": "a357a98e-90b1-46e0-ab4f-9b4bd0e5a6d6",
-            "zIndex": 13,
             "data": {
               "type": "tm.Process",
               "name": "Frontend",
-              "description": "Static files",
+              "description": "Необходим для отправки статичных файлов веб-серверу",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1614,6 +1636,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 14,
             "ports": {
               "groups": {
                 "top": {
@@ -1700,7 +1723,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Online chat\nBackend",
-              "description": "",
+              "description": "Бэк онлайн-чата",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1709,8 +1732,7 @@
               "isWebApplication": false,
               "privilegeLevel": "",
               "threats": []
-            },
-            "zIndex": 14
+            }
           },
           {
             "position": {
@@ -1733,6 +1755,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 15,
             "ports": {
               "groups": {
                 "top": {
@@ -1819,7 +1842,7 @@
             "data": {
               "type": "tm.Process",
               "name": "CTF module",
-              "description": "",
+              "description": "Модуль, обеспечивающий обработку флагов и CTF-тасков",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1828,8 +1851,7 @@
               "isWebApplication": false,
               "privilegeLevel": "",
               "threats": []
-            },
-            "zIndex": 15
+            }
           },
           {
             "position": {
@@ -1855,6 +1877,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 16,
             "ports": {
               "groups": {
                 "top": {
@@ -1938,7 +1961,6 @@
               ]
             },
             "id": "43f793e4-a7a5-4330-9df7-5699637f7586",
-            "zIndex": 16,
             "data": {
               "type": "tm.Store",
               "name": "Chat history",
@@ -1978,6 +2000,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 17,
             "ports": {
               "groups": {
                 "top": {
@@ -2074,8 +2097,7 @@
               "storesCredentials": false,
               "storesInventory": false,
               "threats": []
-            },
-            "zIndex": 17
+            }
           },
           {
             "position": {
@@ -2098,6 +2120,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 18,
             "ports": {
               "groups": {
                 "top": {
@@ -2181,11 +2204,10 @@
               ]
             },
             "id": "8921cc56-d9f0-468b-bdf5-0d1534a3a215",
-            "zIndex": 18,
             "data": {
               "type": "tm.Process",
               "name": "API CTF",
-              "description": "",
+              "description": "Сторонний CTF-сервис",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2217,6 +2239,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 19,
             "ports": {
               "groups": {
                 "top": {
@@ -2303,7 +2326,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Recruiting\nBackend",
-              "description": "",
+              "description": "Регистрация кандидатов, создание записей в БД, обработка доков с резюме",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2312,13 +2335,12 @@
               "isWebApplication": false,
               "privilegeLevel": "",
               "threats": []
-            },
-            "zIndex": 19
+            }
           },
           {
             "position": {
               "x": 192.5,
-              "y": 327
+              "y": 335
             },
             "size": {
               "width": 80,
@@ -2336,6 +2358,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 20,
             "ports": {
               "groups": {
                 "top": {
@@ -2419,11 +2442,10 @@
               ]
             },
             "id": "92d84978-130c-4b6b-a623-924f5988c589",
-            "zIndex": 20,
             "data": {
               "type": "tm.Process",
               "name": "Recruiting \nUI",
-              "description": "",
+              "description": "Пользовательский интерфейс сотрудника",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2455,6 +2477,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 21,
             "ports": {
               "groups": {
                 "top": {
@@ -2538,11 +2561,10 @@
               ]
             },
             "id": "af8148db-7692-4e0d-a5c0-e3702d1757ad",
-            "zIndex": 21,
             "data": {
               "type": "tm.Actor",
               "name": "Worker",
-              "description": "",
+              "description": "Сотрудник, просматривающий данные кандидатов",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2574,6 +2596,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 22,
             "ports": {
               "groups": {
                 "top": {
@@ -2657,7 +2680,6 @@
               ]
             },
             "id": "3d394123-43c0-44d9-b061-26860f92cf33",
-            "zIndex": 22,
             "data": {
               "type": "tm.Store",
               "name": "CTF progress",
@@ -2694,6 +2716,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 23,
             "ports": {
               "groups": {
                 "top": {
@@ -2777,11 +2800,10 @@
               ]
             },
             "id": "55e527c7-35b7-440b-b719-be45abfbc342",
-            "zIndex": 23,
             "data": {
               "type": "tm.Process",
               "name": "Auth\nAPI",
-              "description": "",
+              "description": "Модуль, реализующий вход и аутентификацию пользователей",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2816,6 +2838,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 24,
             "ports": {
               "groups": {
                 "top": {
@@ -2912,14 +2935,13 @@
               "storesCredentials": false,
               "storesInventory": false,
               "threats": []
-            },
-            "zIndex": 24
+            }
           }
         ]
       }
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 0
+    "threatTop": 1
   }
 }
