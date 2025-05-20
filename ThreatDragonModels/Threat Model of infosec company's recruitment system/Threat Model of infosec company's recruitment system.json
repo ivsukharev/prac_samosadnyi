@@ -177,7 +177,25 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "d3af708a-956c-438f-bbb9-5fe53273533c",
+                  "title": "Подделка учётных данных",
+                  "status": "NotApplicable",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Злоумышленник использует утекшие или другим способом полученные учётные данные легитимного пользователя",
+                  "mitigation": "Реализация двухфакторной аутентификации",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 1
+              }
             }
           },
           {
@@ -1247,8 +1265,8 @@
                 "text": "Web \nApplication"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1344,7 +1362,7 @@
               "description": "Вебсайт / веб-приложение",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
@@ -1353,7 +1371,7 @@
                 {
                   "id": "90fc3582-6edc-475f-af8d-bb28c00fa3a6",
                   "title": "Requests from candidate's browser",
-                  "status": "Open",
+                  "status": "NotApplicable",
                   "severity": "TBD",
                   "type": "Spoofing",
                   "description": "Подделка запросов от имени браузера",
@@ -1365,9 +1383,9 @@
                 },
                 {
                   "id": "f36353ff-fb4e-4ca2-9363-529e988288ac",
-                  "title": "Repudiation of CV uploading",
-                  "status": "Open",
-                  "severity": "Low",
+                  "title": "Repudiation of CV or CTF flags uploading",
+                  "status": "NotApplicable",
+                  "severity": "TBD",
                   "type": "Repudiation",
                   "description": "Отрицание загрузки резюме (пользователь утверждает, что резюме не его), отрицание  корректности проверки/сдачи CTF.",
                   "mitigation": "Логирование действий пользователя с привязкой к IP и времени + идентифицировать сессию пользователя (cookies)",
@@ -1378,9 +1396,9 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 2,
                 "tampering": 0,
-                "repudiation": 1,
+                "repudiation": 4,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
@@ -1506,7 +1524,42 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "501c5d70-1628-4ba7-a187-f4d8060fb568",
+                  "title": "Подмена конфигурации или маршрутов",
+                  "status": "NotApplicable",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Злоумышленник получает доступ к файлам конфигурации или настройкам веб-сервера ",
+                  "mitigation": "Использование политик контроля доступа к конфигурации + разделение привилегий",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "id": "07192fa4-a2b1-4250-801d-b140315c4ac3",
+                  "title": "Перегрузка веб-сервера",
+                  "status": "NotApplicable",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Сервер получает большое количество запросов, превышающее его способность их обрабатывать",
+                  "mitigation": "Фильтрация трафика (использование брандмаэуров), ограничение количества подключений",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 3,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1523,8 +1576,8 @@
                 "text": "Frontend"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1620,12 +1673,47 @@
               "description": "Необходим для отправки статичных файлов веб-серверу",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "e0ed16d7-7721-464c-9ca8-ef9895e8476d",
+                  "title": "Утечка данных через DOM",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Неправильная обработка данных на фронтенде может раскрывать флаги или чувствительную информацию",
+                  "mitigation": "Изоляция логики в бекенде, не передавать секреты",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                },
+                {
+                  "id": "5ecf516c-98e6-415e-abde-ef100676fbc4",
+                  "title": "Подмена интерфейса",
+                  "status": "NotApplicable",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Пользователь может быть введен в заблуждение визуально похожим UI",
+                  "mitigation": "Использовать доверенные компоненты, подписи UI",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -2955,6 +3043,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 2
+    "threatTop": 9
   }
 }
