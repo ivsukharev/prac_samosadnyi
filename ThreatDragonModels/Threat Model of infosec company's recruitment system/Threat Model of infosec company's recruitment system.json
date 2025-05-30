@@ -45,7 +45,7 @@
           },
           {
             "position": {
-              "x": 407.00000000000034,
+              "x": 397,
               "y": -75
             },
             "size": {
@@ -184,7 +184,7 @@
                   "status": "NotApplicable",
                   "severity": "TBD",
                   "type": "Spoofing",
-                  "description": "Злоумышленник использует утекшие или другим способом полученные учётные данные легитимного пользователя.\nCWE-287 - Improper Authentication",
+                  "description": "Злоумышленник использует утекшие или другим способом полученные учётные данные легитимного пользователя.",
                   "mitigation": "Реализация двухфакторной аутентификации",
                   "modelType": "STRIDE",
                   "new": false,
@@ -206,7 +206,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 6,
+                "spoofing": 7,
                 "repudiation": 6
               }
             }
@@ -1858,7 +1858,55 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "f572d88e-07c7-42fe-8702-74f086f54e3d",
+                  "title": "Отправка сообщений от чужого имени",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Атакующий выдает себя за сотрудника, получая доступ к личной информации кандидата.",
+                  "mitigation": "Проверка токенов, верификация пользователей ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                },
+                {
+                  "id": "d34bfe75-1133-46a9-8e6d-f118a09dbbed",
+                  "title": "XSS в сообщениях",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Внедрение вредоносного кода через сообщения",
+                  "mitigation": "Экранирование и фильтрация ввода",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                },
+                {
+                  "id": "c4523fee-13bb-44cc-a362-a69d4b0da273",
+                  "title": "Просмотр чужих чатов",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Нет проверки доступа к истории сообщений.",
+                  "mitigation": "Аутентификация и авторизация перед доступом к истории сообщений",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1977,7 +2025,55 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "15998125-6073-4314-ada1-9b051ab2fe67",
+                  "title": "Подделка флагов/условий CTF",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Пользователь вручную формирует валидный флаг в консоли браузера",
+                  "mitigation": "Проверка флагов только на сервере, и только в CTF Service, использование цифровой подписи",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                },
+                {
+                  "id": "9f8a77f1-72b7-49ce-8674-d2db796e0371",
+                  "title": "Утечка подсказок/ответов",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Логика проверки флагов или сами флаги доступны на клиентской стороне.",
+                  "mitigation": "Не передавать флаги/подсказки на фронт, использовать TLS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": ""
+                },
+                {
+                  "id": "9133e842-b0ed-43dd-a4a3-a3a15f1a261a",
+                  "title": "Массовая отправка флагов",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Автоматическая атака на API проверки флагов",
+                  "mitigation": "Rate limiting, CAPTCHA, блокировка IP",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -2100,7 +2196,40 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "5ae2a881-099c-471d-97f1-6effb09e126c",
+                  "title": "Неавторизованный доступ",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Третий пользователь может прочитать историю переписки",
+                  "mitigation": "Проверка доступа + хранение в зашифрованном виде",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
+                },
+                {
+                  "id": "ce198c22-ac04-45f2-a3f3-9e434ec33b25",
+                  "title": "Изменение истории сообщений",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Изменение содержания переписки злоумышленником",
+                  "mitigation": "Журналирование и логирование событий, контроль целостности сообщений (ЭП, хэш)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -2223,7 +2352,40 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "e60e8a98-82ad-486d-8f1b-e7911c3e673e",
+                  "title": "Утечка личных данных",
+                  "status": "NotApplicable",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "БД доступна по публичному интерфейсу, пароли/данные хранятся в открытом виде.",
+                  "mitigation": "Шифрование данных, ограничение доступа + защита на уровне API",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                },
+                {
+                  "id": "c0b01b1e-232f-4aa1-a779-288c9dc5e260",
+                  "title": "Отказ от действий /данных",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Кандидат отрицает отправку резюме/изменение профиля",
+                  "mitigation": "Аудит действий пользователя + однозначная привязка данных к уникальному идентификатору учетной записи",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 3,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -2342,13 +2504,61 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "d1129670-60f7-4a6a-a340-6171462c1792",
+                  "title": "Утечка заданий и решений",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "API CTF возвращает данные без авторизации или по незащищенному каналу.",
+                  "mitigation": "TLS, OAuth2, ограничение прав доступа по токенам",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                },
+                {
+                  "id": "48390f76-2935-4de7-88a3-1c01f6cbe0e6",
+                  "title": "Подмена данных",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Ответы или задачи подменяются в пути или через некорректную конфигурацию",
+                  "mitigation": "Проверка целостности данных (через подпись), использование HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": ""
+                },
+                {
+                  "id": "2fa1a6db-7862-46fb-bfb5-18f0358c9fbe",
+                  "title": "Недоступность внешнего CTF-сервиса",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Сервис недоступен, что мешает рекрутингу и прохождению СTF-заданий.",
+                  "mitigation": "Кэширование заданий, наличие резервной CTF-платформы.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
             "position": {
               "x": 707,
-              "y": 30
+              "y": 35
             },
             "size": {
               "width": 100,
@@ -2474,12 +2684,25 @@
                   "new": false,
                   "number": 16,
                   "score": ""
+                },
+                {
+                  "id": "421ade37-1641-43d6-889a-8fee2c7dee43",
+                  "title": "Отказ от изменения данных кандидата",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Нет логов, фиксирующих кто изменил или удалил данные кандидата",
+                  "mitigation": "Полное логирование действий с метками пользователя и времени",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 0,
                 "tampering": 1,
-                "repudiation": 0,
+                "repudiation": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
@@ -2602,7 +2825,29 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "3220a9d9-8600-4e6e-9e3f-930a7fd44a83",
+                  "title": "Доступ к чужой информации",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Просмотр данных неавторизованными пользователями.",
+                  "mitigation": "Обязательная аутентификация в Auth API перед работой в Recruiting UI",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -2841,7 +3086,40 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "1d4134c0-e8b8-4a40-a343-13b06705af40",
+                  "title": "Фальсификация результатов",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Пользователь напрямую вносит изменения в БД или через уязвимый API",
+                  "mitigation": "Только сервер должен иметь права записи (остальные только чтения), валидация на бэкенде",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": ""
+                },
+                {
+                  "id": "79b70d93-a74b-46a3-96f6-18a9b98488b5",
+                  "title": "Отказ от участия в CTF",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Нет записей о попытках сдачи или сдачах флагов",
+                  "mitigation": "Логирование сессий, ID пользователя, времени и результата",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -2960,7 +3238,42 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "186d49eb-f512-410a-9bb0-1c9566ab8b97",
+                  "title": "Подделка учетных данных",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Злоумышленник входит в систему под чужим логином и паролем",
+                  "mitigation": "Многофакторная аутентификация ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 33,
+                  "score": ""
+                },
+                {
+                  "id": "d9714413-367d-4f8d-9fab-41dfbb3a5871",
+                  "title": "Брутфорс учетных данных",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Нет журналов аутентификации, нельзя доказать попытку доступа",
+                  "mitigation": "Логирование всех попыток входа/выхода с IP и user-agent",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -3083,7 +3396,53 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "90ef0e3f-f305-412a-a2d5-8f44199c011e",
+                  "title": "Общий доступ к файлам",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Ссылка на файлы открыты и не требуют авторизации ",
+                  "mitigation": "Защита ссылок токенами доступа, временное окно жизни URL",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": ""
+                },
+                {
+                  "id": "5316fd50-1efa-4542-bdf4-3b41384397cf",
+                  "title": "Подмена файлов",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Злоумышленник заменяет файл на вредоносный ",
+                  "mitigation": "Проверка сигнатур файлов, антивирусная проверка при загрузке",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 36,
+                  "score": ""
+                },
+                {
+                  "id": "99d583fe-a719-4f27-ae4c-0c488ebc24db",
+                  "title": "Массовая загрузка файлов",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Атака на хранилище путем загрузки большого количества файлов",
+                  "mitigation": "Ограничение размера и частоты загрузок, квоты по аккаунтам",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             }
           }
         ]
@@ -3091,6 +3450,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 16
+    "threatTop": 40
   }
 }
